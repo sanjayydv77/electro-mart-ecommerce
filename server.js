@@ -11,11 +11,13 @@ app.use(cors());
 app.use(express.json());
 
 // Database connection pool
+// IMPORTANT: Before pushing to GitHub, replace these with your own credentials
+// Or better yet, use environment variables (see README.md)
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'Mahi777$',
-    database: 'ecom_db',
+    host: process.env.DB_HOST || 'your-database-host',
+    user: process.env.DB_USER || 'your-username',
+    password: process.env.DB_PASSWORD || 'your-password',
+    database: process.env.DB_NAME || 'ecom',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
