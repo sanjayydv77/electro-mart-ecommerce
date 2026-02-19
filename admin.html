@@ -251,15 +251,15 @@
 
         async function fetchStats() {
             try {
-                const pRes = await fetch('http://localhost:3001/api/products');
+                const pRes = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/products');
                 const products = await pRes.json();
                 document.getElementById('total-products').textContent = Array.isArray(products) ? products.length : 0;
 
-                const uRes = await fetch('http://localhost:3001/api/admin/users');
+                const uRes = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/admin/users');
                 const users = await uRes.json();
                 document.getElementById('total-users').textContent = Array.isArray(users) ? users.length : 0;
 
-                const rRes = await fetch('http://localhost:3001/api/admin/revenue');
+                const rRes = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/admin/revenue');
                 const revenue = await rRes.json();
                 document.getElementById('total-orders').textContent = revenue.total_orders || 0;
                 document.getElementById('total-revenue').textContent = '₹' + Math.round(revenue.total_revenue || 0).toLocaleString('en-IN');
@@ -268,7 +268,7 @@
 
         async function fetchProducts() {
             try {
-                const res = await fetch('http://localhost:3001/api/products');
+                const res = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/products');
                 const products = await res.json();
                 document.getElementById('products-loading').style.display = 'none';
                 document.getElementById('products-table-wrapper').style.display = 'block';
@@ -291,7 +291,7 @@
 
         async function fetchOrders() {
             try {
-                const res = await fetch('http://localhost:3001/api/admin/orders');
+                const res = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/admin/orders');
                 allOrders = await res.json();
                 document.getElementById('orders-loading').style.display = 'none';
                 document.getElementById('orders-table-wrapper').style.display = 'block';
@@ -323,7 +323,7 @@
         // NEW: Fetch Users
         async function fetchUsers() {
             try {
-                const res = await fetch('http://localhost:3001/api/admin/users');
+                const res = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/admin/users');
                 const users = await res.json();
                 document.getElementById('users-loading').style.display = 'none';
                 document.getElementById('users-table-wrapper').style.display = 'block';
@@ -359,7 +359,7 @@
         async function updateStatus(orderId) {
             const newStatus = document.getElementById(`status-${orderId}`).value;
             try {
-                const res = await fetch('http://localhost:3001/api/admin/orders/status', {
+                const res = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/admin/orders/status', {
                     method: 'PUT', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ orderId: orderId, status: newStatus })
                 });
@@ -376,7 +376,7 @@
         }
 
         async function editProduct(id) {
-            const res = await fetch(`http://localhost:3001/api/products/${id}`);
+            const res = await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/products/${id}`);
             const p = await res.json();
             editingProductId = id;
             document.getElementById('modal-title').textContent = 'Edit Product';
@@ -401,7 +401,7 @@
                 category: document.getElementById('product-category').value,
                 image_url: document.getElementById('product-image').value || 'https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg'
             };
-            const url = editingProductId ? `http://localhost:3001/api/admin/products/${editingProductId}` : 'http://localhost:3001/api/admin/products';
+            const url = editingProductId ? `https://electro-mart-ecommerce-1.onrender.com/api/admin/products/${editingProductId}` : 'https://electro-mart-ecommerce-1.onrender.com/api/admin/products';
             const method = editingProductId ? 'PUT' : 'POST';
             
             await fetch(url, { method: method, headers: {'Content-Type': 'application/json'}, body: JSON.stringify(p) });
@@ -410,7 +410,7 @@
 
         async function deleteProduct(id, name) {
             if(confirm(`Delete ${name}?`)) {
-                await fetch(`http://localhost:3001/api/admin/products/${id}`, { method: 'DELETE' });
+                await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/admin/products/${id}`, { method: 'DELETE' });
                 loadAdminData();
             }
         }

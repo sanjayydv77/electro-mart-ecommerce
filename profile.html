@@ -128,7 +128,7 @@
                 const newAddress = document.getElementById('edit-address').value;
 
                 try {
-                    const res = await fetch('http://localhost:3001/api/user/update', {
+                    const res = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/user/update', {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
@@ -167,7 +167,7 @@
 
         async function fetchStats(user) {
             try {
-                const res = await fetch(`http://localhost:3001/api/my-orders/${user.user_id}`);
+                const res = await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/my-orders/${user.user_id}`);
                 const orders = await res.json();
                 if (res.ok && Array.isArray(orders)) {
                     const unique = new Set(orders.map(o => o.order_id));

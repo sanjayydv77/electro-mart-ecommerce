@@ -283,7 +283,7 @@
 
         async function fetchCart() {
             try {
-                const response = await fetch(`http://localhost:3001/api/cart/${user.user_id}`);
+                const response = await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/cart/${user.user_id}`);
                 cartData = await response.json();
                 if (response.ok) renderCart(cartData);
                 else cartContent.innerHTML = `<div class="empty-cart"><h2>❌ Error</h2><p>Please try again later.</p></div>`;
@@ -340,7 +340,7 @@
 
         window.updateQty = async (id, qty, max) => {
             if (qty > max) return alert('Max stock reached');
-            await fetch('http://localhost:3001/api/cart/update', {
+            await fetch('https://electro-mart-ecommerce-1.onrender.com/api/cart/update', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ cartId: id, quantity: qty })
@@ -350,7 +350,7 @@
 
         window.removeItem = async (id) => {
             if(confirm('Remove item?')) {
-                await fetch(`http://localhost:3001/api/cart/remove/${id}`, { method: 'DELETE' });
+                await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/cart/remove/${id}`, { method: 'DELETE' });
                 fetchCart();
             }
         };
@@ -404,7 +404,7 @@
             const items = cartData.map(i => ({ productId: i.product_id, quantity: i.quantity, price: i.price }));
 
             try {
-                const res = await fetch('http://localhost:3001/api/create-bulk-order', {
+                const res = await fetch('https://electro-mart-ecommerce-1.onrender.com/api/create-bulk-order', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -419,7 +419,7 @@
                 const data = await res.json();
 
                 if(res.ok) {
-                    await fetch(`http://localhost:3001/api/cart/clear/${user.user_id}`, { method: 'DELETE' });
+                    await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/cart/clear/${user.user_id}`, { method: 'DELETE' });
                     
                     const today = new Date();
                     const deliveryDate = new Date(today);

@@ -352,7 +352,7 @@
                 confirmBtn.textContent = 'Cancelling...';
 
                 try {
-                    const response = await fetch(`http://localhost:3001/api/cancel-order/${orderToCancel}`, {
+                    const response = await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/cancel-order/${orderToCancel}`, {
                         method: 'DELETE',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ userId: user.user_id })
@@ -386,7 +386,7 @@
                 ordersContainer.innerHTML = '<p id="loading-msg">Loading your orders from database...</p>';
                 
                 try {
-                    const response = await fetch(`http://localhost:3001/api/my-orders/${user.user_id}`);
+                    const response = await fetch(`https://electro-mart-ecommerce-1.onrender.com/api/my-orders/${user.user_id}`);
                     
                     if (!response.ok) {
                         throw new Error('Failed to fetch orders');
