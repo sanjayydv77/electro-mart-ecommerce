@@ -2,6 +2,17 @@
 
 A full-stack e-commerce web application built with Node.js, Express, and MySQL. Features user authentication, product management, shopping cart, and order processing.
 
+## 🌐 Live Demo
+
+**🔗 Visit Live Site:** [https://ecom-electromart.netlify.app/](https://ecom-electromart.netlify.app/)
+
+**Backend API:** [https://electro-mart-ecommerce-1.onrender.com](https://electro-mart-ecommerce-1.onrender.com)
+
+### Deployment Status:
+- ✅ Frontend: Deployed on Netlify
+- ✅ Backend: Deployed on Render
+- ✅ Database: Live Aiven MySQL instance
+
 ## ✨ Features
 
 - **User Authentication**: Secure registration and login with bcrypt password hashing
@@ -14,23 +25,78 @@ A full-stack e-commerce web application built with Node.js, Express, and MySQL. 
 
 ## 🚀 Tech Stack
 
+**Deployment:**
+- Frontend Hosting: Netlify
+- Backend Hosting: Render
+- Database: Aiven Cloud MySQL
+
 **Backend:**
 - Node.js
 - Express.js
-- MySQL (Aiven Cloud Database)
+- MySQL2 with connection pooling
 - bcrypt for password encryption
 - CORS enabled
+- dotenv for environment variables
 
 **Frontend:**
 - Vanilla JavaScript
 - HTML5 & CSS3
 - Modern UI with particle effects
+- Fetch API for backend communication
 
 ## 📋 Prerequisites
 
+**For Local Development:**
 - Node.js (v14 or higher)
 - npm or yarn
 - MySQL database (or Aiven Cloud account)
+
+**For Production Deployment:**
+- GitHub account (for version control)
+- Netlify account (for frontend hosting)
+- Render account (for backend hosting)
+- Aiven account (for managed MySQL database)
+
+## 🌟 Quick Start
+
+### Try the Live App:
+Simply visit: **[https://ecom-electromart.netlify.app/](https://ecom-electromart.netlify.app/)**
+
+No installation needed! The app is fully deployed and ready to use.
+
+### Local Development Setup:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sanjayydv77/electro-mart-ecommerce.git
+   cd electro-mart-ecommerce
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Create .env file**
+   
+   Copy `.env.example` to `.env` and add your credentials:
+   ```env
+   DB_HOST=your-database-host.aivencloud.com
+   DB_USER=your-username
+   DB_PASSWORD=your-password
+   DB_NAME=ecom
+   DB_PORT=24468
+   NODE_ENV=development
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+5. **Access locally**
+   - Backend: `http://localhost:3001`
+   - Frontend: Open `index.html` in your browser
 
 ## 📁 Project Structure
 
@@ -50,6 +116,8 @@ ecom-project/
 ```
 
 ## 🔐 API Endpoints
+
+**Base URL (Production):** `https://electro-mart-ecommerce-1.onrender.com`
 
 ### Authentication
 - `POST /api/register` - Register new user
@@ -78,7 +146,29 @@ ecom-project/
 - `PUT /api/user/:userId` - Update user profile
 
 
-## 📝 TODO
+## � Deployment
+
+This project is deployed and live!
+
+### Production Stack:
+- **Frontend:** Netlify (https://ecom-electromart.netlify.app/)
+- **Backend:** Render (https://electro-mart-ecommerce-1.onrender.com)
+- **Database:** Aiven Cloud MySQL (managed database service)
+
+### Environment Variables (Render):
+Set these in your Render dashboard:
+```
+DB_HOST=your-aiven-host.aivencloud.com
+DB_USER=your-username
+DB_PASSWORD=your-password
+DB_NAME=ecom
+DB_PORT=24468
+NODE_ENV=production
+```
+
+For detailed deployment instructions, see [DEPLOYMENT_INSTRUCTIONS.md](DEPLOYMENT_INSTRUCTIONS.md)
+
+## �📝 TODO
 
 - [ ] Add payment gateway integration
 - [ ] Implement product reviews and ratings
@@ -104,7 +194,9 @@ This project is licensed under the ISC License.
 
 ## 👤 Author
 
-Your Name - [Sanjay yadav](https://github.com/Sanjayydv77)
+Sanjay Yadav - [@sanjayydv77](https://github.com/sanjayydv77)
+
+**Live Project:** [https://ecom-electromart.netlify.app/](https://ecom-electromart.netlify.app/)
 
 ## 🙏 Acknowledgments
 
