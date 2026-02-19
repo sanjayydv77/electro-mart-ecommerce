@@ -2,25 +2,51 @@ const express = require('express');
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
-// Middleware
-app.use(cors());
+// CORS Configuration - Allow Netlify frontend
+const allowedOrigins = [
+    'http://localhost:5500',
+    'http://127.0.0.1:5500',
+    'https://ecom-electromart.netlify.app',
+    'https://electro-mart-ecommerce-1.onrender.com'
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps, Postman, or curl)
+        if (!origin) return callback(null, true);
+        
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            console.log('Blocked by CORS:', origin);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 
 // Database connection pool
-// IMPORTANT: Before pushing to GitHub, replace these with your own credentials
-// Or better yet, use environment variables (see README.md)
+// IMPORTANT: Use environment variables in production (Render dashboard)
 const db = mysql.createPool({
-    host: process.env.DB_HOST || 'your-database-host',
+    host: process.env.DB_HOST || 'your-database-host.aivencloud.com',
     user: process.env.DB_USER || 'your-username',
     password: process.env.DB_PASSWORD || 'your-password',
     database: process.env.DB_NAME || 'ecom',
+    port: process.env.DB_PORT || 24468,
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 0
 });
 
 // Test database connection
@@ -285,9 +311,10 @@ app.delete('/api/cart/clear/:id', async (req, res) => {
     await db.execute('DELETE FROM cart WHERE user_id=?', [req.params.id]);
     res.json({ message: 'Cleared' });
 });
-app.listen(port, () => {
-    console.log(`✅ Backend server running on http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`✅ Backend server running on port ${port}`);
     console.log(`📊 Total API Endpoints: 21`);
-    console.log(`🔐 Database: ecom_db`);
+    console.log(`🔐 Database: ${process.env.DB_NAME || 'ecom'}`);
+    console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🚀 Server ready to handle requests!`);
 });
