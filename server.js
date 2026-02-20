@@ -1,3 +1,14 @@
+/**
+ * Electro-Mart E-Commerce Platform - Backend Server
+ * 
+ * A full-stack e-commerce application with Node.js, Express, and MySQL
+ * Developed by: Sanjay Yadav
+ * GitHub: https://github.com/sanjayydv77
+ * 
+ * @version 1.0.0
+ * @description Backend API server for Electro-Mart e-commerce platform
+ */
+
 const express = require('express');
 const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');

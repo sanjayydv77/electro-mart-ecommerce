@@ -194,9 +194,16 @@ This project is licensed under the ISC License.
 
 ## 👤 Author
 
-Sanjay Yadav - [@sanjayydv77](https://github.com/sanjayydv77)
+**Sanjay Yadav**
 
-**Live Project:** [https://ecom-electromart.netlify.app/](https://ecom-electromart.netlify.app/)
+Full-stack developer passionate about creating modern web applications. This project showcases comprehensive e-commerce functionality with a focus on user experience and clean code architecture.
+
+**Connect with me:**
+- GitHub: [@sanjayydv77](https://github.com/sanjayydv77)
+- LinkedIn: [Sanjay Yadav](https://www.linkedin.com/in/sanjuydv7)
+- Live Project: [https://ecom-electromart.netlify.app/](https://ecom-electromart.netlify.app/)
+
+*Developed with ❤️ by Sanjay Yadav*
 
 ## 🙏 Acknowledgments
 

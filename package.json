@@ -1,14 +1,14 @@
 {
-  "name": "ecom-project",
+  "name": "electro-mart-ecommerce",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full-stack e-commerce platform built with Node.js, Express, and MySQL. Features user authentication, product management, shopping cart, and order processing.",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ecommerce", "nodejs", "express", "mysql", "shopping-cart", "online-store"],
+  "author": "Sanjay Yadav <https://github.com/sanjayydv77>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",

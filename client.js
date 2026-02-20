@@ -1,3 +1,11 @@
+/**
+ * Electro-Mart E-Commerce Platform - Frontend Client Script
+ * 
+ * Handles user authentication (Login & Registration)
+ * Developed by: Sanjay Yadav
+ * GitHub: https://github.com/sanjayydv77
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Get the forms
